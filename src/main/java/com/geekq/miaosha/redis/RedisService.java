@@ -2,6 +2,8 @@ package com.geekq.miaosha.redis;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.*;
@@ -12,7 +14,8 @@ import java.util.List;
 @Service
 @Slf4j
 public class RedisService {
-	
+	private static final Logger log = LoggerFactory.getLogger(RedisService.class);
+
 	@Autowired
 	JedisPool jedisPool;
 

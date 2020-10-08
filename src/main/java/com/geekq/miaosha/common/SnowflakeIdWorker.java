@@ -14,8 +14,6 @@ package com.geekq.miaosha.common;
 public class SnowflakeIdWorker {
 
     // ==============================Fields===========================================
-    /** 开始时间截 (2015-01-01) */
-    private final long twepoch = 1420041600000L;
 
     /** 机器id所占的位数 */
     private final long workerIdBits = 5L;
@@ -116,6 +114,8 @@ public class SnowflakeIdWorker {
         lastTimestamp = timestamp;
 
         //移位并通过或运算拼到一起组成64位的ID
+        /** 开始时间截 (2015-01-01) */
+        long twepoch = 1420041600000L;
         return ((timestamp - twepoch) << timestampLeftShift) //
                 | (datacenterId << datacenterIdShift) //
                 | (workerId << workerIdShift) //
